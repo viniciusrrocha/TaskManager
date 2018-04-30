@@ -8,15 +8,20 @@ use App\Models\Sistema\Noticias\Noticia;
 
 class NoticiasController extends Controller
 {
+    //funcao que exibira os lembretes na tela principal.
     public function site(Noticia $noticia)
     {
+        //funcao de consulta ao banco de dabos utilizando a model.
         $noticias = $noticia->index();
-        return view('Sistema.Noticias.site', compact('noticias'));
+        //retornndo para a view principal do sistema os dados cadastrados no banco.
+        return view('Sistema.Noticias.site', 
+                compact('noticias'));
     }
     public function index(Noticia $noticia)
     {
         $noticias = $noticia->index();
-        return view('Sistema.Noticias.index', compact('noticias'));
+        return view('Sistema.Noticias.index', 
+                compact('noticias'));
     }
     public function mostraAdicionar()
     {

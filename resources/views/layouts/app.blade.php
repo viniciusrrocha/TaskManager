@@ -37,8 +37,8 @@
                     <a class="navbar-brand" href="{{ url('/home') }}">
                         Inicio
                     </a>
-                    <a class="navbar-brand" href="{{ url('/noticias') }}">
-                        Noticias
+                    <a class="navbar-brand" href="{{ url('/recados') }}">
+                        Recados
                     </a>
                     <a class="navbar-brand" href="{{ url('/tarefas') }}">
                         Tarefas

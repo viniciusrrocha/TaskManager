@@ -10,16 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-$this::get('/', 'Sistema\Noticias\NoticiasController@site');
-$this::group(['namespace'=>'Sistema\Noticias', 'middleware'=>'auth'], function(){
+$this::get('/', 'Sistema\Recados\RecadosController@site')->name('recados.site');
+$this::group(['namespace'=>'Sistema\Recados', 'middleware'=>'auth'], function(){
     
-    $this::get('/noticias', 'NoticiasController@index')
-            ->name('noticias.index');
-    $this::get('/noticias/adicionar', 'NoticiasController@mostraAdicionar');
-    $this::post('/noticias/adicionar', 'NoticiasController@salvaAdicionar')
-            ->name('noticias.adicionar');
-    $this::get('/noticias/apagar/{id}', 'NoticiasController@apagar')
-            ->name('noticias.delete');
+    $this::get('/recados', 'RecadosController@index')
+            ->name('recados.index');
+    $this::get('/recados/adicionar', 'RecadosController@mostraAdicionar');
+    $this::post('/recados/adicionar', 'RecadosController@salvaAdicionar')
+            ->name('recados.adicionar');
+    $this::get('/recados/{id}/concluido', 'RecadosController@concluir')
+            ->name('recados.concluir');
+    $this::get('/recados/apagar/{id}', 'RecadosController@apagar')
+            ->name('recados.apagar');
     
 });
 $this::group(['namespace'=>'Sistema\Tarefas'], function(){
