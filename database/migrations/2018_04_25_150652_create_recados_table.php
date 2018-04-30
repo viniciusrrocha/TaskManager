@@ -22,7 +22,7 @@ class CreateRecadosTable extends Migration
                         ->onDelete('cascade');;
             $table->string('titulo', 50);
             $table->string('descricao', 250);
-            $table->dateTime('data');
+            $table->date('data');
             $table->string('status', 1);
         });
     }

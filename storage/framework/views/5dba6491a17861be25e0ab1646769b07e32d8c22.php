@@ -41,7 +41,9 @@
                                 <?php endif; ?>
                             </td>
                             <td>
-                            <button class="btn btn-warning">Alterar</button>
+                            <a href="<?php echo url('/recados/alterar/'.$rec->id); ?>">
+                                <button class="btn btn-warning">Alterar</button>
+                            </a>
                             <i class="oi oi-pencil"></i>
                             <a href="<?php echo url('/recados/apagar/'.$rec->id); ?>">
                             <i class="oi oi-trash"></i>

@@ -31,7 +31,30 @@ class RecadosController extends Controller
     public function salvaAdicionar(Recado $recado, RecadosFormRequest $request)
     {
        // dd($request);
-        $recado = $recado->adicionar($request);
+        $recado = $recado->salvaAdicionar($request);
+        //dd($recado);
+        if($recado['success'])
+        {
+            return redirect()
+                        ->route('recados.index')
+                        ->with('success', $recado['message']);
+        }
+        else
+        {
+            return redirect()
+                        ->back()
+                        ->with('erros', $recado['message']);
+        }
+    }
+    public function mostraAlterar(Recado $recado, $id)
+    {
+        $recado = $recado->mostraAlterar($id);
+        return view('Sistema.Recados.alterar', compact('recado'));
+    }
+    public function salvaAlterar(Recado $recado, RecadosFormRequest $request)
+    {
+       // dd($request);
+        $recado = $recado->salvaAlterar($request);
         //dd($recado);
         if($recado['success'])
         {

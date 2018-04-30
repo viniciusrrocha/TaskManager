@@ -33,6 +33,7 @@ class RecadosFormRequest extends FormRequest
     {
         return [
             'titulo.required'=>'Titulo e Obrigatorio.',
+            'titulo.unique'=>'Titulo ja existe.',
             'descricao.required'=>'Descrição e Obrigatorio.',
             'data.required'=>'Data e Obrigatorio'
         ];

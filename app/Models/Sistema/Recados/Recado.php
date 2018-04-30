@@ -21,7 +21,7 @@ class Recado extends Model
         $recados = $this->paginate(10);
         return $recados; 
     }
-    public function adicionar($request)
+    public function salvaAdicionar($request)
     {
         $noticia            = new $this;
         $noticia->user_id   = Auth::user()->id;
@@ -43,6 +43,35 @@ class Recado extends Model
         
 
     }
+    public function mostraAlterar($id)
+    {
+        $recado= $this->find($id);
+        //dd($recado);
+        return $recado; 
+    }
+    public function salvaAlterar($request)
+    {
+        $noticia            =  $this::find($request->id);
+        $noticia->user_id   = Auth::user()->id;
+        $noticia->titulo    = $request->titulo;
+        $noticia->descricao = $request->descricao;
+        $noticia->data      = date('Y-m-d');
+        $noticia->status    = "A";
+        $noticia->save();
+
+        if($noticia)
+            return [
+                'success'=>true,
+                'message'=>'Recado Alterado com Sucesso!'
+            ];
+        return [
+            'success' =>false,
+            'message'=>'Erro do Alterar Recado!'
+        ];
+        
+
+    }
+
     public function concluir($id)
     {
         $recado =  $this->find($id);

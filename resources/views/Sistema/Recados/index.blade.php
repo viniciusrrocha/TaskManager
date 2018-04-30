@@ -43,7 +43,9 @@
                                 @endif
                             </td>
                             <td>
-                            <button class="btn btn-warning">Alterar</button>
+                            <a href="{!! url('/recados/alterar/'.$rec->id) !!}">
+                                <button class="btn btn-warning">Alterar</button>
+                            </a>
                             <i class="oi oi-pencil"></i>
                             <a href="{!! url('/recados/apagar/'.$rec->id) !!}">
                             <i class="oi oi-trash"></i>
